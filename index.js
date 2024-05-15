@@ -169,7 +169,7 @@ RestartButton.addEventListener('click', RestartGame);
 let w = window.outerWidth;
 
 if(w <= 786){
-    startText.innerHTML = "Tap to StartGame!!";
+    startText.innerHTML = "Tap to StartGame !!";
 
     window.addEventListener("touchstart", StartGame, {once: true});
 }
