@@ -41,10 +41,11 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 670px;
-    width: 700px;
+    height: 600px;
+    width: 600px;
     padding: 50px;
     background: #fff;
+    border-radius: 10px;
     display: none;
 }
 
@@ -86,13 +87,12 @@ body{
 .container .boxes{
     display: grid;
     perspective: 500px;
-    height: 100%;
-    width: 100%;
-    margin-top: 20px;
-    margin-left: 30px;
-    grid-template-columns: repeat(4, 120px);
-    grid-template-rows: repeat(4, 120px);
-    gap: 20px;
+    height: auto;
+    width: auto;
+    margin: 10px 20px;
+    grid-template-columns: repeat(4, 110px);
+    grid-template-rows: repeat(4, 110px);
+    gap: 10px;
 }
 
 .container .boxes .box{
@@ -123,3 +123,103 @@ body{
 .flip{
     transform: rotateY(180deg);
 }
+
+/* Tablet */
+@media (min-width: 321px) and (max-width: 786px) {
+    .startText{
+        font-size: 1.1rem;
+    }
+    .container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 450px;
+        width: 450px;
+        padding: 10px;
+        display: none;
+    }
+    .container .box{
+        height: 100%;
+        width: 100%;
+    }
+    
+    .container .boxes{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+        width: auto;
+        margin-top: 20px;
+        display: grid;
+        perspective: 500px;
+        grid-template-columns: repeat(4, 70px);
+        grid-template-rows: repeat(4, 70px);
+        gap: 5px;
+    }
+
+    .container .lives{
+        margin-top: 50px;
+        font-size: .9rem;
+    }
+    
+    .container .lives .livesCount{
+        font-size: 1rem;
+    }
+
+    .container .reset{
+        height: 25px;
+        width: 65px;
+        padding: 5px 5px;
+        font-size: .7rem;
+        font-weight: bold;
+    }
+}
+
+/* Phone */
+@media(max-width: 320px) {
+    .startText{
+        font-size: 1rem;
+    }
+    .container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 320px;
+        width: 250px;
+        padding: 10px;
+        display: none;
+    }
+    .container .box{
+        height: 100%;
+        width: 100%;
+    }
+    
+    .container .boxes{
+        height: 100%;
+        width: 100%;
+        margin-top: 20px;
+        display: grid;
+        perspective: 200px;
+        grid-template-columns: repeat(4, 45px);
+        grid-template-rows: repeat(4, 45px);
+        gap: 5px;
+    }
+
+    .container .lives{
+        margin-top: 50px;
+        font-size: .8rem;
+    }
+    
+    .container .lives .livesCount{
+        font-size: .9rem;
+    }
+
+    .container .reset{
+        height: 25px;
+        width: 65px;
+        padding: 5px 5px;
+        font-size: .7rem;
+        font-weight: bold;
+    }
+}
+
