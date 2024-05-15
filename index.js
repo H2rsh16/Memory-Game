@@ -93,6 +93,8 @@ const checkCards = () =>{
                         }
                         
                         flipped.forEach(i=>i.classList.remove('flipped'))
+
+                        return flipped;
                     }
         
                     if(LiveCount == 0){
@@ -163,3 +165,11 @@ document.addEventListener('keydown', StartGame)
 
 RestartButton.addEventListener('click', RestartGame);
 
+
+let w = window.outerWidth;
+
+if(w <= 786){
+    startText.innerHTML = "Tap to StartGame!!";
+
+    window.addEventListener("touchstart", StartGame, {once: true});
+}
