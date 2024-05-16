@@ -106,8 +106,7 @@ body{
 }
 
 .back{
-    background-color: #8BC6EC;
-    background-image: linear-gradient(298deg, #8BC6EC 0%, #9599E2 100%);    
+    background: #9599E2;    
     backface-visibility: hidden;
 }
 
