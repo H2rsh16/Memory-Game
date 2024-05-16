@@ -125,7 +125,7 @@ body{
 }
 
 /* Tablet */
-@media (min-width: 321px) and (max-width: 786px) {
+@media (min-width: 521px) and (max-width: 786px) {
     .startText{
         font-size: 1.1rem;
     }
@@ -176,7 +176,7 @@ body{
 }
 
 /* Phone */
-@media(max-width: 320px) {
+@media(max-width: 520px) {
     .startText{
         font-size: 1rem;
     }
