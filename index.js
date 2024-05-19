@@ -5,8 +5,9 @@ var Boxes = document.querySelector('.boxes');
 var RestartButton = document.querySelector('.reset');
 var Lives = document.querySelector('.livesCount');
 
-let LiveCount = 6;
+let LiveCount = 100;
 Lives.textContent = LiveCount;
+var matchedCards = 0;
 
 
 
@@ -50,41 +51,52 @@ const handleClick = () =>{
     
 }
 
+
+
 const checkCards = () =>{
     var Cards = document.querySelectorAll('.box');
     
     Cards.forEach((card)=>{
-            
-            card.addEventListener('click', (e)=>{
-                let currentCard = e.target;
-                currentCard.classList.add('flipped');     
+
+        card.addEventListener('click', (e)=>{
+            let currentCard = e.target;
+            currentCard.classList.add('flipped');
                 
-                var flipped = document.querySelectorAll('.flipped');
+                var flipped = document.querySelectorAll('.flipped')
+
+                
                 
                 if(flipped.length == 2){
-
-                        if(flipped[0].getAttribute('name') == flipped[1].getAttribute('name')){
+                    
+                    if(flipped[0].getAttribute('name') == flipped[1].getAttribute('name')){
+                    }
+                    else{
+                        LiveCount--;
+                        Lives.textContent = LiveCount;
+                        if(LiveCount < 0){
+                            RestartGame();
                         }
-                        else{
-                            LiveCount--;
-                            Lives.textContent = LiveCount;
-                            if(LiveCount < 0){
-                                RestartGame();
-                            }
-                        }
+                    }
                         
 
-                    }
+                }
                 })
                 
-                    // ************** Main Logic **************
+                // ************** Main Logic **************
 
                 card.addEventListener('transitionend', ()=>{
                     var flipped = document.querySelectorAll('.flipped');
+
                     
                     if(flipped.length == 2){
+                        const card1 = flipped[0].getAttribute('name');
+                        const card2 = flipped[1].getAttribute('name');
                         if(flipped[0].getAttribute('name') == flipped[1].getAttribute('name')){
-                            console.log('Match Two Images');
+                            matchedCards++;
+
+                            if(matchedCards == 8){
+                                RestartGame();
+                            }
                         }
                         else{
                             flipped.forEach(i=>{
@@ -101,6 +113,9 @@ const checkCards = () =>{
                         RestartGame();
                     }
                     else if(LiveCount < 0){
+                        RestartGame();
+                    }
+                    else if(matchedCards == 8){
                         RestartGame();
                     }
                     else return;
@@ -123,6 +138,8 @@ const RandomizeImages = () =>{
 }
 
 
+
+
 const RestartGame = () =>{
     
     var Cards = document.querySelectorAll('.box');
@@ -133,7 +150,9 @@ const RestartGame = () =>{
         Lives.textContent = LiveCount;
     })
 
-    // alert('Game is Restarted !!')
+    matchedCards = 0;
+    alert("You Win !!")
+
 }
 
 
@@ -169,7 +188,7 @@ RestartButton.addEventListener('click', RestartGame);
 let w = window.outerWidth;
 
 if(w <= 786){
-    startText.innerHTML = "Tap to StartGame !!";
+    startText.innerHTML = "Tap to StartGame!!";
 
     window.addEventListener("touchstart", StartGame, {once: true});
 }
