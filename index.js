@@ -5,7 +5,7 @@ var Boxes = document.querySelector('.boxes');
 var RestartButton = document.querySelector('.reset');
 var Lives = document.querySelector('.livesCount');
 
-let LiveCount = 100;
+let LiveCount = 6;
 Lives.textContent = LiveCount;
 var matchedCards = 0;
 
