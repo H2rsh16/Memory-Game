@@ -51,7 +51,14 @@ const handleClick = () =>{
     
 }
 
+const CheckWin = ()=>{
+    if(matchedCards == 8){
+        RestartGame();
+    }
 
+    alert("You Win !!");
+
+}
 
 const checkCards = () =>{
     var Cards = document.querySelectorAll('.box');
@@ -134,12 +141,7 @@ const RandomizeImages = () =>{
     
 }
 
-const CheckWin = ()=>{
-    if(matchedCards == 8){
-        RestartGame();
-    }
-    alert("You Win !!");
-}
+
 
 
 const RestartGame = () =>{
