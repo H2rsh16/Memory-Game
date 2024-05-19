@@ -93,10 +93,7 @@ const checkCards = () =>{
                         const card2 = flipped[1].getAttribute('name');
                         if(flipped[0].getAttribute('name') == flipped[1].getAttribute('name')){
                             matchedCards++;
-
-                            if(matchedCards == 8){
-                                RestartGame();
-                            }
+                            CheckWin();
                         }
                         else{
                             flipped.forEach(i=>{
@@ -137,7 +134,12 @@ const RandomizeImages = () =>{
     
 }
 
-
+const CheckWin = ()=>{
+    if(matchedCards == 8){
+        RestartGame();
+    }
+    alert("You Win !!");
+}
 
 
 const RestartGame = () =>{
@@ -151,7 +153,6 @@ const RestartGame = () =>{
     })
 
     matchedCards = 0;
-    alert("You Win !!")
 
 }
 
