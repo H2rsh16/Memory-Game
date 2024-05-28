@@ -51,15 +51,6 @@ const handleClick = () =>{
     
 }
 
-const CheckWin = ()=>{
-    if(matchedCards == 8){
-        RestartGame();
-    }
-
-    alert("You Win !!");
-
-}
-
 const checkCards = () =>{
     var Cards = document.querySelectorAll('.box');
     
@@ -99,8 +90,13 @@ const checkCards = () =>{
                         const card1 = flipped[0].getAttribute('name');
                         const card2 = flipped[1].getAttribute('name');
                         if(flipped[0].getAttribute('name') == flipped[1].getAttribute('name')){
+                            // ============== Check The Win Logic ================
+
                             matchedCards++;
-                            CheckWin();
+                            if(matchedCards == 8){
+                                RestartGame();
+                                alert("You Win !!");
+                            }
                         }
                         else{
                             flipped.forEach(i=>{
